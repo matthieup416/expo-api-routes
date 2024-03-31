@@ -2,7 +2,6 @@ import { Text, View, TouchableOpacity } from 'react-native'
 
 export default function Page() {
   const apiUrl = process.env.EXPO_PUBLIC_API_URL
-  console.log('apiUrl', apiUrl)
   const fetchAPI = async () => {
     try {
       const response = await fetch(`${apiUrl}/api/linkedin`)
@@ -10,8 +9,8 @@ export default function Page() {
         throw new Error('❌Network response was not ok')
       }
       const data = await response.json()
-      console.log('data', data)
-      alert('Hello ' + JSON.stringify(data))
+      console.log('data', data.Hi)
+      alert('Response from server ' + data.Hi)
     } catch (error) {
       console.error('Fetch error: ', error)
       alert('Fetch failed: ' + error)
